@@ -76,8 +76,14 @@ class SQLiteToRealmModel: NSObject {
                     try! realm.write {
                         realm.add(realmInfoItem)
                     }
-                    
                 }
+                
+                let defaultRealmPath = realm.path
+                let compactedRealmPath = defaultRealmPath.stringByReplacingOccurrencesOfString(".realm", withString: "-compact.realm")
+                
+                try! realm.writeCopyToPath(compactedRealmPath , encryptionKey: nil)
+                
+                print("Finished Migration: \(compactedRealmPath)")
                 
             }
             else {
