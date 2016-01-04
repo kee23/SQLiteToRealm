@@ -1,5 +1,5 @@
 # SQLiteToRealm
-Utility application that helps to create and populate a Realm database from an existing SQLite database
+Swift application that shows how to create and populate a Realm database from an existing SQLite database
 
 This is meant to assist in migrating from a populated SQLite database to a populated Realm database.
 
