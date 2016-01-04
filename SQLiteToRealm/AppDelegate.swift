@@ -1,0 +1,23 @@
+//
+//  AppDelegate.swift
+//  SQLiteToRealm
+//
+//  Created by Harkeerat Toor on 1/3/16.
+//  Copyright © 2016 kee. All rights reserved.
+//
+
+import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
+        return true
+    }
+
+}
+
