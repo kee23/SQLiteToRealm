@@ -26,19 +26,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         loadData()
     }
     
-    private func loadData()
+    fileprivate func loadData()
     {
         let query = "select * from SampleInfo"
         dbManager.loadFromDB(query, realm:realm)
-        objects = realm.objects(SampleRealmObject)
+        objects = realm.objects(SampleRealmObject.self)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         cell.textLabel!.text = objects[indexPath.row].title
         cell.detailTextLabel!.text = objects[indexPath.row].subtitle

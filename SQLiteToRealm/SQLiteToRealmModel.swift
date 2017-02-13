@@ -20,16 +20,16 @@ class SQLiteToRealmModel: NSObject {
     }
     
     
-    func loadFromDB(query: String, realm: Realm)
+    func loadFromDB(_ query: String, realm: Realm)
     {
-        let fileURL = NSBundle.mainBundle().pathForResource(sqliteFilename, ofType:sqliteExtension)
+        let fileURL = Bundle.main.path(forResource: sqliteFilename, ofType:sqliteExtension)
         
         // Open SQLite database
-        var db: COpaquePointer = nil
+        var db: OpaquePointer? = nil
         if sqlite3_open(fileURL!, &db) == SQLITE_OK {
             
             // Run SELECT query from db
-            var statement: COpaquePointer = nil
+            var statement: OpaquePointer? = nil
             if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
                 
                 // Create realm object
@@ -52,18 +52,18 @@ class SQLiteToRealmModel: NSObject {
                     
                     let title = sqlite3_column_text(statement, 1)
                     if title != nil {
-                        let titleString = String.fromCString(UnsafePointer<Int8>(title))
-                        print("title = \(titleString!); ", terminator: "")
-                        realmInfoItem.title = titleString!
+                        let titleString = String(cString:title!)
+                        print("title = \(titleString); ", terminator: "")
+                        realmInfoItem.title = titleString
                     } else {
                         print("title not found", terminator: "")
                     }
                     
                     let subtitle = sqlite3_column_text(statement, 2)
                     if subtitle != nil {
-                        let subtitleString = String.fromCString(UnsafePointer<Int8>(subtitle))
-                        print("subtitle = \(subtitleString!); ", terminator: "")
-                        realmInfoItem.subtitle = subtitleString!
+                        let subtitleString = String(cString:subtitle!)
+                        print("subtitle = \(subtitleString); ", terminator: "")
+                        realmInfoItem.subtitle = subtitleString
                     } else {
                         print("subtitle not found", terminator: "")
                     }
@@ -78,18 +78,23 @@ class SQLiteToRealmModel: NSObject {
                     }
                 }
                 
-                let defaultRealmPath = realm.path
-                let compactedRealmPath = defaultRealmPath.stringByReplacingOccurrencesOfString(".realm", withString: "-compact.realm")
-                
-                try! realm.writeCopyToPath(compactedRealmPath , encryptionKey: nil)
-                
-                print("Finished Migration: \(compactedRealmPath)")
-                
             }
             else {
-                let errmsg = String.fromCString(sqlite3_errmsg(db))
+                let errmsg = String(cString: sqlite3_errmsg(db))
                 print("error running query: \(errmsg)")
             }
+            
+            let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL?.deletingLastPathComponent().appendingPathComponent("default-compact.realm")
+            
+            do {
+                try FileManager.default.removeItem(atPath: (defaultRealmPath?.path)!)
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+            
+            try! Realm().writeCopy(toFile: (defaultRealmPath! as NSURL) as URL)
+            
+            print("Finished Migration: \(defaultRealmPath)")
         }
         else {
             print("error opening database")
