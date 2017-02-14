@@ -15,11 +15,12 @@
 		1A587B661C3A3E20007D14C2 /* SQLiteToRealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A587B651C3A3E20007D14C2 /* SQLiteToRealmTests.swift */; };
 		1A587B711C3A3E21007D14C2 /* SQLiteToRealmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A587B701C3A3E21007D14C2 /* SQLiteToRealmUITests.swift */; };
 		1A587B811C3A3E6D007D14C2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A587B801C3A3E6D007D14C2 /* libsqlite3.tbd */; };
-		1A587B841C3A3F10007D14C2 /* sampledb.db in Resources */ = {isa = PBXBuildFile; fileRef = 1A587B831C3A3F10007D14C2 /* sampledb.db */; };
 		1A587B891C3A4060007D14C2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A587B881C3A4060007D14C2 /* Realm.framework */; };
 		1A587B8B1C3A4066007D14C2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A587B8A1C3A4066007D14C2 /* RealmSwift.framework */; };
-		1A587B921C3A4571007D14C2 /* SQLiteToRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A587B911C3A4571007D14C2 /* SQLiteToRealmModel.swift */; };
-		1A587B961C3A491A007D14C2 /* SampleRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A587B951C3A491A007D14C2 /* SampleRealmObject.swift */; };
+		9A2D58DD1E5381C4004708B8 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D58DC1E5381C4004708B8 /* Dog.swift */; };
+		9A2D58DF1E5381CC004708B8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D58DE1E5381CC004708B8 /* Person.swift */; };
+		9A2D58E11E53944D004708B8 /* sample.db in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D58E01E53944D004708B8 /* sample.db */; };
+		9A2D58E31E5394E5004708B8 /* SQLiteToRealmConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D58E21E5394E5004708B8 /* SQLiteToRealmConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +55,13 @@
 		1A587B701C3A3E21007D14C2 /* SQLiteToRealmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteToRealmUITests.swift; sourceTree = "<group>"; };
 		1A587B721C3A3E21007D14C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A587B801C3A3E6D007D14C2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		1A587B831C3A3F10007D14C2 /* sampledb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.db; sourceTree = "<group>"; };
 		1A587B881C3A4060007D14C2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = SOURCE_ROOT; };
 		1A587B8A1C3A4066007D14C2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
 		1A587B8F1C3A4439007D14C2 /* SQLiteToRealm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SQLiteToRealm-Bridging-Header.h"; path = "SQLiteToRealm/SQLiteToRealm-Bridging-Header.h"; sourceTree = "<group>"; };
-		1A587B911C3A4571007D14C2 /* SQLiteToRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteToRealmModel.swift; sourceTree = "<group>"; };
-		1A587B951C3A491A007D14C2 /* SampleRealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleRealmObject.swift; sourceTree = "<group>"; };
+		9A2D58DC1E5381C4004708B8 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		9A2D58DE1E5381CC004708B8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		9A2D58E01E53944D004708B8 /* sample.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.db; sourceTree = "<group>"; };
+		9A2D58E21E5394E5004708B8 /* SQLiteToRealmConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteToRealmConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +116,9 @@
 		1A587B4F1C3A3E20007D14C2 /* SQLiteToRealm */ = {
 			isa = PBXGroup;
 			children = (
-				1A587B831C3A3F10007D14C2 /* sampledb.db */,
-				1A587B911C3A4571007D14C2 /* SQLiteToRealmModel.swift */,
-				1A587B951C3A491A007D14C2 /* SampleRealmObject.swift */,
+				9A2D58DB1E5381A8004708B8 /* Realm Model */,
+				9A2D58E01E53944D004708B8 /* sample.db */,
+				9A2D58E21E5394E5004708B8 /* SQLiteToRealmConverter.swift */,
 				1A587B521C3A3E20007D14C2 /* ViewController.swift */,
 				1A587B541C3A3E20007D14C2 /* Main.storyboard */,
 				1A587B7E1C3A3E3A007D14C2 /* Supporting Files */,
@@ -164,6 +166,15 @@
 			);
 			name = Frameworks;
 			path = SQLiteToRealm;
+			sourceTree = "<group>";
+		};
+		9A2D58DB1E5381A8004708B8 /* Realm Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D58DC1E5381C4004708B8 /* Dog.swift */,
+				9A2D58DE1E5381CC004708B8 /* Person.swift */,
+			);
+			name = "Realm Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +287,8 @@
 			files = (
 				1A587B5B1C3A3E20007D14C2 /* LaunchScreen.storyboard in Resources */,
 				1A587B581C3A3E20007D14C2 /* Assets.xcassets in Resources */,
+				9A2D58E11E53944D004708B8 /* sample.db in Resources */,
 				1A587B561C3A3E20007D14C2 /* Main.storyboard in Resources */,
-				1A587B841C3A3F10007D14C2 /* sampledb.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,9 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A587B961C3A491A007D14C2 /* SampleRealmObject.swift in Sources */,
+				9A2D58DF1E5381CC004708B8 /* Person.swift in Sources */,
+				9A2D58E31E5394E5004708B8 /* SQLiteToRealmConverter.swift in Sources */,
 				1A587B531C3A3E20007D14C2 /* ViewController.swift in Sources */,
-				1A587B921C3A4571007D14C2 /* SQLiteToRealmModel.swift in Sources */,
+				9A2D58DD1E5381C4004708B8 /* Dog.swift in Sources */,
 				1A587B511C3A3E20007D14C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
